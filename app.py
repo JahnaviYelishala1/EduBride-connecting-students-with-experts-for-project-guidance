@@ -10,17 +10,14 @@ from passlib.context import CryptContext
 from typing import Optional, List
 from datetime import datetime
 import os, traceback, bcrypt, shutil, mysql.connector,uuid
-from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, date
-from decimal import Decimal
-import matplotlib.pyplot as plt
 from pydantic import BaseModel
 import io,logging
-import urllib.parse
+
 
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="supersecretkey123")
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto") 
 
 app.add_middleware(
     CORSMiddleware,
